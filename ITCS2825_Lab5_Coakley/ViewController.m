@@ -10,8 +10,25 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *theScroller;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segEmbeddedSites;
+- (IBAction)segSelectEmbeddedSite:(UISegmentedControl *)sender;
+@property (weak, nonatomic) IBOutlet UIWebView *webvEmbeds;
 
 @end
+
+NSString  *faveEmbedSites[] =
+{
+    @"www.ti.com",
+    @"www.nutsvolts.com",
+    @"www.arduino.cc"
+};
+
+NSString  *faveInfoSites[] =
+{
+    @"www.ti.com",
+    @"www.nutsvolts.com",
+    @"www.arduino.cc"
+};
 
 @implementation ViewController
 
@@ -32,4 +49,19 @@
     self.theScroller.contentSize = CGSizeMake(280, 1000.0);
 }
 
+-(void)loadWebView:(UIWebView *) aWebView  withNSStringUrl: (NSString *)aURL
+{
+    NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://%@", aURL ]];
+    
+    [aWebView loadRequest:[NSURLRequest requestWithURL:url]];
+    
+    
+    
+}
+
+- (IBAction)segSelectEmbeddedSite:(UISegmentedControl *)sender
+{
+    int idx = self.segEmbeddedSites.selectedSegmentIndex;
+    [self loadWebView:self.webvEmbeds withNSStringUrl:faveEmbedSites[idx]];
+}
 @end
