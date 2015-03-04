@@ -13,6 +13,10 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segEmbeddedSites;
 - (IBAction)segSelectEmbeddedSite:(UISegmentedControl *)sender;
 @property (weak, nonatomic) IBOutlet UIWebView *webvEmbeds;
+@property (weak, nonatomic) IBOutlet UIScrollView *theScroller2;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segNewsSites;
+@property (weak, nonatomic) IBOutlet UIWebView *webvNews;
+- (IBAction)segSelectNews:(UISegmentedControl *)sender;
 
 @end
 
@@ -25,9 +29,9 @@ NSString  *faveEmbedSites[] =
 
 NSString  *faveInfoSites[] =
 {
-    @"www.ti.com",
-    @"www.nutsvolts.com",
-    @"www.arduino.cc"
+    @"www.msn.com",
+    @"www.salon.com",
+    @"www.aljazeera.com"
 };
 
 @implementation ViewController
@@ -43,10 +47,11 @@ NSString  *faveInfoSites[] =
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.theScroller.contentSize = CGSizeMake(280, 1000.0);
+    self.theScroller2.contentSize = CGSizeMake(280, 1500.0);
 }
 
 -(void)loadWebView:(UIWebView *) aWebView  withNSStringUrl: (NSString *)aURL
@@ -58,10 +63,15 @@ NSString  *faveInfoSites[] =
     
     
 }
+- (IBAction)segSelectNews:(UISegmentedControl *)sender
+{
+    int idx = sender.selectedSegmentIndex;
+    [self loadWebView:self.webvNews withNSStringUrl:faveInfoSites[idx]];
+}
 
 - (IBAction)segSelectEmbeddedSite:(UISegmentedControl *)sender
 {
-    int idx = self.segEmbeddedSites.selectedSegmentIndex;
+    int idx = sender.selectedSegmentIndex;
     [self loadWebView:self.webvEmbeds withNSStringUrl:faveEmbedSites[idx]];
 }
 @end
