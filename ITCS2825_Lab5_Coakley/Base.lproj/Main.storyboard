@@ -41,9 +41,6 @@
                                         <rect key="frame" x="20" y="106" width="287" height="280"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </webView>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="U39-SP-U0q">
-                                        <rect key="frame" x="104" y="911" width="118" height="31"/>
-                                    </slider>
                                     <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IKa-DS-iB7">
                                         <rect key="frame" x="20" y="623" width="287" height="280"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
